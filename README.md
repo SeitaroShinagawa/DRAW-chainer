@@ -13,4 +13,7 @@ matplotlib
 pillow  
 sklearn(only for downloading mnist)  
 
-## 
+## Architecture  
+![DRAWarchitecture](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/DRAW_architecture.jpg)  
+
+
