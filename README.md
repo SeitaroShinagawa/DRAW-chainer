@@ -7,7 +7,7 @@ todo
 - [ ] Complete description  
 
 ## Original Paper  
-["DRAW: A Recurrent Neural Network For Image Generation"](http://jmlr.org/proceedings/papers/v37/gregor15.html)]  
+["DRAW: A Recurrent Neural Network For Image Generation"](http://jmlr.org/proceedings/papers/v37/gregor15.html)  
 
 ## Develop environment  
 Python 3.5.2  
