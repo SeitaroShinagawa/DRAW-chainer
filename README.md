@@ -3,6 +3,7 @@ Reproduction of Deep Recurrent Attentive Writer (Recurrent VAE with attention) u
 
 todo  
 - [x] Minimum implementation  
+- [ ] Show result  
 - [ ] Add visualizer  
 - [ ] Complete description  
 
