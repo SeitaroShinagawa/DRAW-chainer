@@ -45,9 +45,9 @@ python train_draw_withattention.py --help
 ### without attention (reconstruction of train data during learning)
 ![noA](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/noA.png)  
 epoch: 0 -> 20  
-![noAfig](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/learning_curve_noA.png =200x240)  
+<img src=https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/learning_curve_noA.png width="200" height="240" />    
 
 ### with attention  (reconstruction of train data during learning)
 ![wA](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/wA.png)  
 epoch: 0 -> 20  
-![wAfig](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/learning_curve_wA.png =200x240)  
+<img src="https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/learning_curve_wA.png" width="200" height="240" />    
