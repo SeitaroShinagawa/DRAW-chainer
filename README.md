@@ -41,10 +41,10 @@ python train_draw_withattention.py --help
 ## Architecture  
 ![DRAWarchitecture](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/DRAW_architecture.jpg)  
 
-##results
-###without attention  
+## results
+### without attention  
 ![noA](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/noA.png)  
 
-###with attention  
-![noA](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/wA.png)  
+### with attention  
+![wA](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/wA.png)  
 
