@@ -17,6 +17,29 @@ from data_util_mnist import MNIST
 from util import XP
 import matplotlib.pyplot as plt
 from matplotlib import cm
+from datetime import datetime
+
+#utilities
+def date():
+    return datetime.now().strftime('%Y/%m/%d %H:%M:%S')
+
+def trace(path,src):
+    with open(path,'a') as f:
+        print(src,file=f)
+    print(src)
+
+def clip(a):
+  return 0 if a<0 else (255 if a>255 else a)
+
+def array_to_img(im):
+  im = im*255
+  im = np.vectorize(clip)(im).astype(np.uint8)
+  img=Image.fromarray(im)
+  return img
+
+def save_img(img_array,save_path): #save from np.array (3,height,width)
+  img = array_to_img(img_array)
+  img.save(save_path)
 
 def parse_args():
     vae_H_enc_def = 256
@@ -171,6 +194,7 @@ def main():
 
   vae = VAE_bernoulli_attention(vae_enc,vae_z,vae_dec,Read_patch,Write_patch,28,28,1)
   opt = optimizers.Adam(alpha = cur_lr)
+  opt.use_cleargrads()
   opt.setup(vae)
   if args.model_path!=None:
     print('loading model ...')
@@ -197,7 +221,7 @@ def main():
     LX = 0.0
     LZ = 0.0
     counter = 0
-    for iter,(img_array,label_array) in enumerate(mnist.gen_train(batchsize,Random=True)):
+    for iter_,(img_array,label_array) in enumerate(mnist.gen_train(batchsize,Random=True)):
         B = img_array.shape[0]
         Lz = XP.fzeros(())
         vae.reset(img_array)
@@ -224,16 +248,21 @@ def main():
         counter += B
         sys.stdout.write('\rnow training ...  epoch {}, {}/{}  '.format(epoch,counter,train_size))
         sys.stdout.flush()
-        if (iter+1) % 100 == 0:
+        if (iter_+1) % 100 == 0:
           print("({}-th batch mean loss) Lx:%03.3f Lz:%03.3f".format(counter) % (Lx.data/B,Lz.data/B))
 
+	print("\nsave fig...")
     img_array = cuda.to_cpu(y.data)
     im_array = img_array.reshape(batchsize*28,28)
     img = im_array[:28*5]
+	"""
     plt.clf()
     plt.imshow(img,cmap=cm.gray)
     plt.colorbar(orientation='horizontal')
     plt.savefig(save_path+"/"+"img{}.png".format(epoch))
+	"""
+	save_img(img,save_path+"/{}.png".format(str(epoch).zfill(3)))
+	
 
     trace(save_path+"/trainloss.txt","epoch {} Lx:{} Lz:{} Lx+Lz:{}".format(epoch,LX/train_size,LZ/train_size,(LX+LZ)/train_size))            	
     trainloss_dic[str(epoch).zfill(3)]={
@@ -313,13 +342,6 @@ def main():
         with open(save_path+"/valloss.json",'w') as f:
             json.dump(valloss_dic,f,indent=4)
         
-        img_array = cuda.to_cpu(y.data)
-        im_array = img_array.reshape(batchsize*28,28)
-        img = im_array[:28*5]
-        plt.clf()
-        plt.imshow(img,cmap=cm.gray)
-        plt.colorbar(orientation='horizontal')
-        plt.savefig(save_path+"/"+"img_test{}.png".format(epoch))
   print('finished.') 
     
 if __name__ == '__main__':

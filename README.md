@@ -3,7 +3,7 @@ Reproduction of Deep Recurrent Attentive Writer (Recurrent VAE with attention) u
 
 todo  
 - [x] Minimum implementation  
-- [ ] Show result  
+- [x] Show result  
 - [ ] Add visualizer  
 - [ ] Complete description  
 
@@ -14,8 +14,7 @@ todo
 Python 3.5.2  
 ### (requirement libraries using pip)
 chainer 1.16.0  
-scipy  
-matplotlib  
+scipy    
 pillow  
 sklearn (only for downloading mnist)  
 
@@ -42,4 +41,10 @@ python train_draw_withattention.py --help
 ## Architecture  
 ![DRAWarchitecture](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/DRAW_architecture.jpg)  
 
+##results
+###without attention  
+![noA](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/noA.png)  
+
+###with attention  
+![noA](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/wA.png)  
 

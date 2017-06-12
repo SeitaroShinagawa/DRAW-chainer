@@ -37,7 +37,7 @@ class VAE_bernoulli_noattention(Chain):
           [gamma](ln_gamma):0.0 (gamma=1.0) 
           t: the number of processed minibatch 
         """ 
-        self.zerograds() 
+        self.cleargrads() 
         self.B = image_batch.shape[0] 
         self.canvas = XP.fzeros((self.B,self.C*self.height*self.width)) 
         self.x = F.reshape(XP.farray(image_batch),(self.B,self.C*self.height*self.width)) 
