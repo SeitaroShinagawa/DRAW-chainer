@@ -64,7 +64,7 @@ class Filters:
         
         mu_x = F.transpose(F.broadcast_to(mu_x,(self.width,B,P,1)),(1,2,0,3))
         mu_x = F.broadcast_to(self.Warray,(B,P,W)) - F.reshape(mu_x,(B,P,W))
-        mu_y = F.transpose(F.broadcast_to(mu_y,(self.width,B,P,1)),(1,2,0,3))
+        mu_y = F.transpose(F.broadcast_to(mu_y,(self.height,B,P,1)),(1,2,0,3))
         mu_y = F.broadcast_to(self.Harray,(B,P,H)) - F.reshape(mu_y,(B,P,H))
         var_x = F.reshape(var_x,(B,P,W)) # (B,P,W) -> (B,P,W)
         var_y = F.reshape(var_y,(B,P,H)) # (B,P,H) -> (B,P,H)
