@@ -42,9 +42,9 @@ python train_draw_withattention.py --help
 ![DRAWarchitecture](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/DRAW_architecture.jpg)  
 
 ## results
-### without attention  
+### without attention (reconstruction of train data during learning)
 ![noA](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/noA.png)  
-
-### with attention  
+epoch: 0 -> 20  
+### with attention  (reconstruction of train data during learning)
 ![wA](https://github.com/SeitaroShinagawa/DRAW-chainer/blob/master/imgs/wA.png)  
-
+epoch: 0 -> 20
